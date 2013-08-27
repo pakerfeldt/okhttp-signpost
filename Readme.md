@@ -3,7 +3,9 @@ signpost-retrofit
 
 A [Retrofit][1] extension to [oauth-signpost][2].
 
-An example of how to use it.
+The extension comes with a SigningOkClient helper class to use when building the `RestAdapter`.
+
+Here is an example of how to use it:
 
     RetrofitHttpOAuthConsumer oAuthConsumer = new RetrofitHttpOAuthConsumer(key, secret);
     oAuthConsumer.setTokenWithSecret(token, secret);
