@@ -3,7 +3,7 @@ signpost-retrofit
 
 A [Retrofit][1] extension to [oauth-signpost][2].
 
-The extension comes with a SigningOkClient helper class to use when building the `RestAdapter`.
+The extension comes with a SigningOkClient helper class to use with [OkHttp][3] when building the `RestAdapter`.
 
 Here is an example of how to use it:
 
@@ -34,3 +34,4 @@ License
 
  [1]: https://github.com/square/retrofit
  [2]: https://github.com/mttkay/signpost
+ [3]: https://github.com/square/okhttp
