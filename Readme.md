@@ -1,11 +1,15 @@
 signpost-retrofit
 ========
 
-A Retrofit[1] extension to oauth-signpost[2].
+A [Retrofit][1] extension to [oauth-signpost][2].
+
+An example of how to use it.
 
     RetrofitHttpOAuthConsumer oAuthConsumer = new RetrofitHttpOAuthConsumer(key, secret);
     oAuthConsumer.setTokenWithSecret(token, secret);
     RestAdapter adapter = new RestAdapter.Builder().setServer(...).setClient(new SigningOkClient(oAuthConsumer).setConverter().build();
+
+Note that this extension does not (currently) include HttpOAuthProvider and HttpResponseAdapter implementations.
 
 License
 =======
