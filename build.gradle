@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'se.akerfeldt'
+version = '0.0.1'
+
+description = """"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'com.squareup.retrofit', name: 'retrofit', version:'1.0.2'
+    compile group: 'oauth.signpost', name: 'signpost-core', version:'1.2.1.2'
+}
