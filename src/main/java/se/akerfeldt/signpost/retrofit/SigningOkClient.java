@@ -17,6 +17,7 @@ package se.akerfeldt.signpost.retrofit;
 
 import java.io.IOException;
 
+import com.squareup.okhttp.OkHttpClient;
 import oauth.signpost.exception.OAuthCommunicationException;
 import oauth.signpost.exception.OAuthExpectationFailedException;
 import oauth.signpost.exception.OAuthMessageSignerException;
@@ -34,6 +35,11 @@ public class SigningOkClient extends OkClient {
 	private final RetrofitHttpOAuthConsumer mOAuthConsumer;
 	
 	public SigningOkClient(RetrofitHttpOAuthConsumer consumer) {
+		mOAuthConsumer = consumer;
+	}
+
+	public SigningOkClient(OkHttpClient client, RetrofitHttpOAuthConsumer consumer) {
+        super(client);
 		mOAuthConsumer = consumer;
 	}
 	
