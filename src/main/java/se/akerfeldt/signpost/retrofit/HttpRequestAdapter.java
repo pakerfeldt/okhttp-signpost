@@ -71,7 +71,6 @@ public class HttpRequestAdapter implements HttpRequest {
 
 	@Override
 	public InputStream getMessagePayload() throws IOException {
-		// throw new RuntimeException(new UnsupportedOperationException());
 		final String contentType = getContentType();
 		if (null != contentType && contentType.startsWith("application/x-www-form-urlencoded")) {
 			long contentLength = request.getBody().length();
@@ -80,7 +79,9 @@ public class HttpRequestAdapter implements HttpRequest {
 			request.getBody().writeTo(output);
 			return new ByteArrayInputStream(output.toByteArray());
 		}
-		return null;
+
+		throw new UnsupportedOperationException("The content type" + (contentType != null ? " " +
+					contentType : "") + " is not supported.");
 	}
 
 	@Override
@@ -104,7 +105,7 @@ public class HttpRequestAdapter implements HttpRequest {
 
 	@Override
 	public void setRequestUrl(String url) {
-		throw new RuntimeException(new UnsupportedOperationException());
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
