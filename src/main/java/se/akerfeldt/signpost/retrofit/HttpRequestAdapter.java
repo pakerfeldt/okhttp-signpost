@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 Patrik Åkerfeldt
+ * Copyright (C) 2013 Patrik √Ökerfeldt
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 package se.akerfeldt.signpost.retrofit;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -35,9 +37,9 @@ public class HttpRequestAdapter implements HttpRequest {
 	private String contentType;
 
 	public HttpRequestAdapter(Request request) {
-        this(request, DEFAULT_CONTENT_TYPE);
-    }
-	
+		this(request, request.getBody() != null ? request.getBody().mimeType() : DEFAULT_CONTENT_TYPE);
+	}
+
 	public HttpRequestAdapter(Request request, String contentType) {
 		this.request = request;
 		this.contentType = contentType;
@@ -69,7 +71,17 @@ public class HttpRequestAdapter implements HttpRequest {
 
 	@Override
 	public InputStream getMessagePayload() throws IOException {
-		throw new RuntimeException(new UnsupportedOperationException());
+		final String contentType = getContentType();
+		if (null != contentType && contentType.startsWith("application/x-www-form-urlencoded")) {
+			long contentLength = request.getBody().length();
+			ByteArrayOutputStream output = new ByteArrayOutputStream(Long.valueOf(contentLength)
+					.intValue());
+			request.getBody().writeTo(output);
+			return new ByteArrayInputStream(output.toByteArray());
+		}
+
+		throw new UnsupportedOperationException("The content type" + (contentType != null ? " " +
+					contentType : "") + " is not supported.");
 	}
 
 	@Override
@@ -90,11 +102,10 @@ public class HttpRequestAdapter implements HttpRequest {
 		Request copy = new Request(request.getMethod(), request.getUrl(), headers, request.getBody());
 		request = copy;
 	}
-	
 
 	@Override
 	public void setRequestUrl(String url) {
-		 throw new RuntimeException(new UnsupportedOperationException());
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
