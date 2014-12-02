@@ -105,7 +105,8 @@ public class HttpRequestAdapter implements HttpRequest {
 
 	@Override
 	public void setRequestUrl(String url) {
-		throw new UnsupportedOperationException();
+		Request copy = new Request(request.getMethod(), url, request.getHeaders(), request.getBody());
+		request = copy;
 	}
 
 	@Override
