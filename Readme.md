@@ -3,16 +3,18 @@ signpost-retrofit
 
 A [Retrofit][1] extension to [oauth-signpost][2].
 
-The extension comes with a SigningOkClient helper class to use with [OkHttp][3] when building the `RestAdapter`.
+The extension comes with a `SigningOkClient` helper class to use with [OkHttp][3] when building the `RestAdapter`.
 
 Here is an example of how to use it:
 
-    RetrofitHttpOAuthConsumer oAuthConsumer = new RetrofitHttpOAuthConsumer(key, secret);
-    oAuthConsumer.setTokenWithSecret(token, secret);
-    RestAdapter adapter = new RestAdapter.Builder().setServer(...)
-        .setClient(new SigningOkClient(oAuthConsumer)).build();
+```java
+RetrofitHttpOAuthConsumer oAuthConsumer = new RetrofitHttpOAuthConsumer(key, secret);
+oAuthConsumer.setTokenWithSecret(token, secret);
+RestAdapter adapter = new RestAdapter.Builder().setServer(...)
+    .setClient(new SigningOkClient(oAuthConsumer)).build();
+```
 
-Note that this extension does not (currently) include HttpOAuthProvider and HttpResponseAdapter implementations.
+Note that this extension does not (currently) include `HttpOAuthProvider` and `HttpResponseAdapter` implementations.
 
 License
 =======
