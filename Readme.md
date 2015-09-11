@@ -3,4 +3,6 @@
 
 A proper implementation targeted for okhttp has been created instead. 
 
-See [okhttp-signpost][1].
+See [okhttp-signpost][1]
+
+[1]: https://github.com/pakerfeldt/okhttp-signpost
