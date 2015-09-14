@@ -23,10 +23,18 @@ import java.io.IOException;
 
 import oauth.signpost.exception.OAuthException;
 
+/**
+ * An OKHttp interceptor that signs requests using oauth-signpost.
+ */
 public class SigningInterceptor implements Interceptor {
 
     private final OkHttpOAuthConsumer consumer;
 
+    /**
+     * Constructs a new {@code SigningInterceptor}.
+     *
+     * @param consumer the {@link OkHttpOAuthConsumer} used to sign the requests.
+     */
     public SigningInterceptor(OkHttpOAuthConsumer consumer) {
         this.consumer = consumer;
     }

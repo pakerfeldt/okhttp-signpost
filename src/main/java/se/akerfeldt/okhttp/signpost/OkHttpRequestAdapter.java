@@ -25,10 +25,18 @@ import java.util.Map;
 import oauth.signpost.http.HttpRequest;
 import okio.Buffer;
 
+/**
+ * A {@link HttpRequest} implementation that is backed by an OkHttp {@link Request} object. This is used by
+ * oauth-signpost to read the {@link Request} and sign it.
+ */
 public class OkHttpRequestAdapter implements HttpRequest {
 
     private Request request;
 
+    /**
+     * Constructs a new {@code OkHttpRequestAdapter}.
+     * @param request the {@link Request} that is to be signed.
+     */
     public OkHttpRequestAdapter(Request request) {
         this.request = request;
     }

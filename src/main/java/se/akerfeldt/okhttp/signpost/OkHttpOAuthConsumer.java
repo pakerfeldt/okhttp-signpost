@@ -20,8 +20,17 @@ import com.squareup.okhttp.Request;
 import oauth.signpost.AbstractOAuthConsumer;
 import oauth.signpost.http.HttpRequest;
 
+/**
+ * {@code OkHttpOAuthConsumer} is a {@link oauth.signpost.OAuthConsumer} implementation capable of handling OkHttp
+ * {@link Request}s.
+ */
 public class OkHttpOAuthConsumer extends AbstractOAuthConsumer {
 
+    /**
+     * Constructs a new {@code OkHttpOAuthConsumer}.
+     * @param consumerKey the consumer key.
+     * @param consumerSecret the consumer secret.
+     */
     public OkHttpOAuthConsumer(String consumerKey, String consumerSecret) {
         super(consumerKey, consumerSecret);
     }
