@@ -25,7 +25,7 @@
 
   <groupId>se.akerfeldt</groupId>
   <artifactId>okhttp-signpost</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
 
   <name>OkHttp Signpost</name>
