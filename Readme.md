@@ -5,18 +5,11 @@ A [Signpost][1] extension for signing [OkHttp][2] requests.
 
 Download
 =======
-okhttp-signpost is currently not published anywhere so you will have to fork this repository and install locally:
-```bash
-git clone git@github.com:pakerfeldt/okhttp-signpost.git
-cd okhttp-signpost
-mvn install
-```
-
-add dependencies with gradle (assumes okhttp-signpost installed locally):
+Gradle:
 ```gradle
+    compile 'se.akerfeldt:okhttp-signpost:1.0.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
-    compile 'se.akerfeldt:okhttp-signpost:1.0.0'
 ```
 Usage
 =======
