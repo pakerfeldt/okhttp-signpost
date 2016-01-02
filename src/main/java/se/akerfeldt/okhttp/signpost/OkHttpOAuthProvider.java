@@ -15,9 +15,9 @@
  */
 package se.akerfeldt.okhttp.signpost;
 
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import oauth.signpost.AbstractOAuthProvider;
 import oauth.signpost.http.HttpRequest;
 import oauth.signpost.http.HttpResponse;

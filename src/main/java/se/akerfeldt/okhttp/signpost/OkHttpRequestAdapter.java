@@ -15,7 +15,7 @@
  */
 package se.akerfeldt.okhttp.signpost;
 
-import com.squareup.okhttp.Request;
+import okhttp3.Request;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,7 +80,7 @@ public class OkHttpRequestAdapter implements HttpRequest {
 
     @Override
     public String getRequestUrl() {
-        return request.urlString();
+        return request.url().toString();
     }
 
     @Override
