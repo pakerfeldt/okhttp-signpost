@@ -8,7 +8,7 @@ Download
 Gradle:
 ```gradle
     compile 'se.akerfeldt:okhttp-signpost:1.0.0'
-    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'okhttp3:okhttp:2.5.0'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
 ```
 Usage
@@ -16,13 +16,15 @@ Usage
 
 To use, simply create an instance of `OkHttpOAuthConsumer` passing in your consumer key/secret pair.
 Set your token and token secret. Lastly, create a SigningInterceptor with your consumer and give it to your
-`OkHttpClient` instance.
+`OkHttpClient.Builder`.
 
 ```java
 OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
 consumer.setTokenWithSecret(token, secret);
 
-okHttpClient.interceptors().add(new SigningInterceptor(consumer));
+OkHttpClient client = new OkHttpClient.Builder()
+        .addInterceptor(new SigningInterceptor(consumer))
+        .build();
 ```
 
 The `SigningInterceptor` is a convenience for signing the request but is not mandatory. You could also sign your request
@@ -42,7 +44,9 @@ Retrofit:
 OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
 consumer.setTokenWithSecret(token, secret);
 
-okHttpClient.interceptors().add(new SigningInterceptor(consumer));
+OkHttpClient client = new OkHttpClient.Builder()
+        .addInterceptor(new SigningInterceptor(consumer))
+        .build();
 
 return new Retrofit.Builder()
         ...

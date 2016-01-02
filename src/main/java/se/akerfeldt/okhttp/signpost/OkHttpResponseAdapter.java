@@ -15,7 +15,7 @@
  */
 package se.akerfeldt.okhttp.signpost;
 
-import com.squareup.okhttp.Response;
+import okhttp3.Response;
 import oauth.signpost.http.HttpResponse;
 
 import java.io.IOException;
