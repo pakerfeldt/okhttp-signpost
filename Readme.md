@@ -8,7 +8,7 @@ Download
 Gradle:
 ```gradle
     compile 'se.akerfeldt:okhttp-signpost:1.0.0'
-    compile 'okhttp3:okhttp:2.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.0.0-RC1'
     compile 'oauth.signpost:signpost-core:1.2.1.2'
 ```
 Usage
