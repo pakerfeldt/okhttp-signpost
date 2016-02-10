@@ -28,7 +28,7 @@ import oauth.signpost.http.HttpResponse;
  */
 public class OkHttpOAuthProvider extends AbstractOAuthProvider {
 
-    private OkHttpClient okHttpClient;
+    private transient OkHttpClient okHttpClient;
 
     /**
      * Constructs a new {@code OkHttpOAuthProvider} with a default {@link OkHttpClient}.
