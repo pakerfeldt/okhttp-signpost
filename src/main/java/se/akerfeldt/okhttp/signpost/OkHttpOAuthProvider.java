@@ -64,4 +64,12 @@ public class OkHttpOAuthProvider extends AbstractOAuthProvider {
         Response response = okHttpClient.newCall((Request) request.unwrap()).execute();
         return new OkHttpResponseAdapter(response);
     }
+
+    @Override
+    protected void closeConnection(HttpRequest request, HttpResponse response) throws Exception {
+        if (response != null) {
+            Response r = (Response) response.unwrap();
+            r.close();
+        }
+    }
 }
