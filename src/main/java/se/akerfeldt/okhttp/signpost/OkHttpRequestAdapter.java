@@ -80,7 +80,7 @@ public class OkHttpRequestAdapter implements HttpRequest {
 
     @Override
     public String getRequestUrl() {
-        return request.url().toString();
+        return request.url().uri().toString();
     }
 
     @Override
