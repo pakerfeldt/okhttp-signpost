@@ -80,6 +80,9 @@ public class OkHttpRequestAdapter implements HttpRequest {
 
     @Override
     public String getRequestUrl() {
+        if (this.request.header("X-PROXY-CUSTOM-URL") != null) {
+            return this.request.header("X-PROXY-CUSTOM-URL");
+        }
         return request.url().toString();
     }
 
